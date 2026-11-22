@@ -8,15 +8,18 @@ export const metadata: Metadata = {
   title: "بين الرسائل – Between Letters",
   description:
     "Private romantic vintage letter correspondence for two hearts — The Art of Waiting.",
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "بين الرسائل",
   },
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-512.png",
+    icon: [
+      { url: "/icons/icon-192.svg", type: "image/svg+xml", sizes: "192x192" },
+      { url: "/icons/icon-512.svg", type: "image/svg+xml", sizes: "512x512" },
+    ],
+    apple: "/icons/icon-512.svg",
   },
 };
 

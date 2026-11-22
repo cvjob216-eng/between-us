@@ -3,9 +3,16 @@ const CACHE_NAME = "between-letters-v1";
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(["/manifest.json", "/icons/icon-192.png", "/icons/icon-512.png"]);
-    }).catch(() => {})
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => {
+        return cache.addAll([
+          "/manifest.webmanifest",
+          "/icons/icon-192.svg",
+          "/icons/icon-512.svg",
+        ]);
+      })
+      .catch(() => {})
   );
 });
 
@@ -36,8 +43,8 @@ self.addEventListener("push", (event) => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: "/icons/icon-192.png",
-      badge: "/icons/icon-192.png",
+      icon: "/icons/icon-192.svg",
+      badge: "/icons/icon-192.svg",
       tag: "between-letters-arrival",
       data: { url: data.url },
     })
